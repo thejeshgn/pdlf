@@ -1,0 +1,6 @@
+ID,Time,Record Type,Historic Glucose (mg/dL),device,longitude,latitude,tags,note
+349977,2016/05/26 11:42,0,111,Abbott Freestyle,77.594563,12.971599,First | CGM | GMSPart1,First CGM Measurement
+349978,2016/05/26 11:57,0,88,Abbott Freestyle,77.594563,12.971599,First | CGM | GMSPart1,
+349979,2016/05/26 12:12,0,68,Abbott Freestyle,77.594563,12.971599,First | CGM | GMSPart1,
+349980,2016/05/26 12:27,0,61,Abbott Freestyle,77.594563,12.971599,First | CGM | GMSPart1,
+349981,2016/05/26 12:42,0,63,Abbott Freestyle,77.594563,12.971599,First | CGM | GMSPart1,
