@@ -1,0 +1,21 @@
+{
+  "_id": "74cb5a817956e2826a6b1ddc8e9771eb",
+  "version": 0.1,
+  "time": "2016-05-26T11:42:00.73+05:30",
+  "geo": {
+    "type": "Point",
+    "coordinates": [
+      77.58706940917969,
+      12.981809528732812
+    ]
+  },
+  "type": "bodyweight",
+  "device": "Omron",
+  "tags": [
+    "First"
+  ],
+  "data": {
+    "unit": "kg",
+    "bodyweight": 52.3
+  }
+}
