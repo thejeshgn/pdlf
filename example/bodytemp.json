@@ -1,0 +1,23 @@
+{
+  "_id": "5c4fca811dccfc795694113b534900a2",
+  "_rev": "1-0f91482c028cdf4121b8c88f85996b26",
+  "version": 0.1,
+  "time": "2016-05-26T11:42:00.73+05:30",
+  "geo": {
+    "type": "Point",
+    "coordinates": [
+      77.57926940917969,
+      12.981809528732812
+    ]
+  },
+  "type": "bodytemp",
+  "device": "Digital Themometer",
+  "tags": [
+    "First"
+  ],
+  "data": {
+    "note": "MY first measurement of temp",
+    "unit": "F",
+    "bodytemp": 98.6
+  }
+}
