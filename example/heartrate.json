@@ -1,0 +1,21 @@
+{
+  "_id": "ca854b1d439512c94374590092b98d6b",
+  "version": 0.1,
+  "time": "2016-05-26T11:42:00.73+05:30",
+  "geo": {
+    "type": "Point",
+    "coordinates": [
+      77.58706940917969,
+      12.981809528732812
+    ]
+  },
+  "type": "heartrate",
+  "device": "Omron Wrist Blood Pressure Monitor",
+  "tags": [
+    "First"
+  ],
+  "data": {
+    "unit": "bpm",
+    "heartrate": 70
+  }
+}
