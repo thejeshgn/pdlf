@@ -1,0 +1,24 @@
+{
+  "_id": "e52ebab17a3ae68be226f4d30f7696f0",
+  "version": 0.1,
+  "time": "2017-03-28T12:48:00.73+05:30",
+  "geo": {
+    "type": "Point",
+    "coordinates": [
+      77.61835187673569,
+      13.003773719250814
+    ]
+  },
+  "type": "esr",
+  "device": "lab",
+  "tags": [
+    "infection",
+    "fever"
+  ],
+  "data": {
+    "note": "my first test",
+    "esr": 25,
+    "unit": "mm/hr",
+    "method": "Westergren"
+  }
+}
