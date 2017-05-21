@@ -1,0 +1,23 @@
+{
+  "_id": "dd5f84765c45698d8fa275f98e6d9ef1",
+  "version": 0.1,
+  "time": "2016-05-26T11:42:00.73+05:30",
+  "geo": {
+    "type": "Point",
+    "coordinates": [
+      77.57926940917969,
+      12.981809528732812
+    ]
+  },
+  "type": "cbg",
+  "device": "Abott Freestyle",
+  "tags": [
+    "First",
+    "CGM"
+  ],
+  "data": {
+    "note": "MY first measurement using the CGM",
+    "unit": "mg/dL",
+    "glucose": 111
+  }
+}
