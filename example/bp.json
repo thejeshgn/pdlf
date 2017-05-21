@@ -1,0 +1,22 @@
+{
+  "_id": "474bc29b9077fd48c1bd68da0512998a",
+  "version": 0.1,
+  "time": "2016-05-26T11:42:00.73+05:30",
+  "geo": {
+    "type": "Point",
+    "coordinates": [
+      77.6792694091797,
+      12.781809528732811
+    ]
+  },
+  "type": "bp",
+  "device": "Omron Wrist Blood Pressure Monitor",
+  "tags": [
+    "BP"
+  ],
+  "data": {
+    "unit": "mmHG",
+    "sys": 120,
+    "dia": 80
+  }
+}
