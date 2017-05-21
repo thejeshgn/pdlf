@@ -1,0 +1,21 @@
+{
+  "_id": "17d232913e2198c2881cd29e8165309f",
+  "version": 0.1,
+  "time": "2017-05-20T21:05:00.73+05:30",
+  "geo": {
+    "type": "Point",
+    "coordinates": [
+      77.61835187673569,
+      13.003773719250814
+    ]
+  },
+  "type": "diary",
+  "device": "phone",
+  "tags": [
+    "eod",
+    "notes"
+  ],
+  "data": {
+    "note": "Its been a good day. I wrote the notes for a format which I am going to call Personal Data Logging Format."
+  }
+}
