@@ -11,7 +11,7 @@
 # Author Thejesh GN
 # License  GNU GPL v3
 # How to use:
-# python freestyle.py --inputfile example2.csv  --url https://api_key_user:api_key_password@username.cloudant.com --db personal_data
+# python freestyle.py --inputfile example2.csv  --url https://api_key_user:api_key_password@username.cloudant.com --db personal_data --update 0
 
 import click
 import csv
@@ -24,8 +24,9 @@ from datetime import datetime
 @click.option('--inputfile', help='Input file is important. example2_added_columns.csv ')
 @click.option('--url', prompt='url', help='url of DB. https://api_key_user:api_key_password@username.cloudant.com  ')
 @click.option('--db', prompt='db', help='Couch DB. Like personal_data ')
+@click.option('--update', prompt='update', default=0, help='Update existing records. 0 for No. 1 for Yes, update please. By default 0')
 
-def hello(inputfile, url, db):
+def hello(inputfile, url, db, update):
     couch = couchdb.Server(url)
     db = couch[db]
 
@@ -44,11 +45,20 @@ def hello(inputfile, url, db):
             m.update(ID+time)
             #create an _id using md5 of ID and Time as per freestyle
             _id = m.hexdigest()
-            if db[_id]:
-                print "Document with "+_id+" already exists."
-                continue
+            exists = False
+            try:
+                if db[_id]:
+                    print "Document with "+_id+" already exists."
+                    doc = db[_id]
+                    exists = True
+            except couchdb.http.ResourceNotFound:
+                #Create a new doc with _id
+                exists = False
+                doc["_id"] = str(_id)
+                
+
             
-            doc["_id"] = str(_id)
+            
             doc["version"] = 0.1
             #time format 2016/05/26 11:42
             #req "2016-05-26T11:42:00.00+05:30"
@@ -67,10 +77,18 @@ def hello(inputfile, url, db):
                 doc["device"] = device
                 longitude = row[5]
                 latitude = row[6]
-                geo  = { "type": "Point", "coordinates": [ longitude,latitude]},
-                doc["geo"] = geo
+                if longitude is None or longitude == "":
+                    pass
+                else:
+                    geo  = { "type": "Point", "coordinates": [ longitude,latitude]},
+                    doc["geo"] = geo
+                
                 tags = row[7]
-                doc["tags"] = [x.strip() for x in tags.split('|')]
+                if tags is None or tags == "":
+                    pass
+                else:
+                    doc["tags"] = [x.strip() for x in tags.split('|')]
+                
                 note = row[8]
                 data["note"] = note
             ############################### additional fields ##################
@@ -82,8 +100,16 @@ def hello(inputfile, url, db):
             doc['data'] = data
     
             print str(doc)
-            db.save(doc)
-            print "-------------------------------- INSERTED -------------------"
+            if exists == False:
+                db.save(doc)
+                print "--------------------------- INSERTED -------------------"
+            
+            if exists == True and update == 1:                
+                db.save(doc)
+                print "---------------------------- UPDATED -------------------"
+                
+            
+            
      
 if __name__ == '__main__':
     hello()
