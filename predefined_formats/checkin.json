@@ -1,0 +1,21 @@
+{
+  "_id": "17d232913e2198c2881cd29e8165309f",
+  "version": 0.1,
+  "time": "2017-05-22T14:05:00.73+05:30",
+  "geo": {
+    "type": "Point",
+    "coordinates": [
+      77.5844094,
+      12.9788089
+    ]
+  },
+  "type": "checkin",
+  "device": "phone",
+  "tags": [
+    "checkin",
+    "notes"
+  ],
+  "data": {
+    "note": "I am at RadioActiv Community Radio"
+  }
+}
