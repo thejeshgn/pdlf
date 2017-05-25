@@ -20,16 +20,9 @@ import couchdb
 import md5
 from datetime import datetime
 
-@click.command()
-@click.option('--inputfile', help='Input file is important. example2_added_columns.csv ')
-@click.option('--url', prompt='url', help='url of DB. https://api_key_user:api_key_password@username.cloudant.com  ')
-@click.option('--db', prompt='db', help='Couch DB. Like personal_data ')
-@click.option('--update', prompt='update', default=0, help='Update existing records. 0 for No. 1 for Yes, update please. By default 0')
 
-def hello(inputfile, url, db, update):
-    couch = couchdb.Server(url)
-    db = couch[db]
 
+def import_csv(inputfile, update, db_manager):
     first = True
     with open(inputfile, 'rb') as csvfile:
         spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
@@ -37,7 +30,7 @@ def hello(inputfile, url, db, update):
             if first:
                 first = False
                 continue                
-            doc = {}    
+            doc = None   
             #basic
             ID = row[0]
             time = row[1]
@@ -46,19 +39,20 @@ def hello(inputfile, url, db, update):
             #create an _id using md5 of ID and Time as per freestyle
             _id = m.hexdigest()
             exists = False
-            try:
-                if db[_id]:
-                    print "Document with "+_id+" already exists."
-                    doc = db[_id]
-                    exists = True
-            except couchdb.http.ResourceNotFound:
+            doc = db_manager.getRecord(_id)
+            if doc:
+                print "Document with "+_id+" already exists."
+                exists = True
+                #NO need to update
+                if update == 0:
+                    continue
+            else:
                 #Create a new doc with _id
+                doc = {}
                 exists = False
                 doc["_id"] = str(_id)
                 
-
-            
-            
+                        
             doc["version"] = 0.1
             #time format 2016/05/26 11:42
             #req "2016-05-26T11:42:00.00+05:30"
@@ -101,15 +95,10 @@ def hello(inputfile, url, db, update):
     
             print str(doc)
             if exists == False:
-                db.save(doc)
+                db_manager.addRecord(_id, doc)
                 print "--------------------------- INSERTED -------------------"
             
             if exists == True and update == 1:                
-                db.save(doc)
+                db_manager.updateRecord(_id, doc)
                 print "---------------------------- UPDATED -------------------"
                 
-            
-            
-     
-if __name__ == '__main__':
-    hello()

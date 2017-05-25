@@ -1,0 +1,5 @@
+DB_TYPE = "couchdb"
+DB_URL = "localhost:5000"
+DB_USERNAME =""
+DB_PASSWORD =""
+DB_NAME ="testdb"
