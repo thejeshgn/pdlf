@@ -18,6 +18,8 @@
   "data": {
     "note": "I Walked quite a bit today",
     "unit": "steps",
-    "steps": 10000
+    "steps": 10000,
+    "start": "2017-05-22T00:05:00.73+05:30",
+    "end": "2017-05-22T23:555:00.73+05:30",
   }
 }
